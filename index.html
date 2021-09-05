@@ -17,6 +17,14 @@
         <img id="rock" src="./images/rock.jpeg" />
         <img id="grass" src="./images/grass.png" />
         <img src="./images/equirectangular-360-photo.jpg" id="360photo" />
+        <a-asset-item
+          id="character-obj"
+          src="./models/character.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="character-mtl"
+          src="./models/character.mtl"
+        ></a-asset-item>
       </a-assets>
 
       <a-sky src="#360photo"></a-sky>
@@ -80,9 +88,26 @@
         dur: 500;
         loop: 2;
         dir: alternate;
-        startEvents: click;
-                   "
+        startEvents: click;"
       ></a-box>
+
+      <a-entity
+        obj-model="obj: #character-obj; mtl: #character-mtl"
+        position="1.5 0.1 2"
+        rotation="0 -171 0"
+        scale="0.1 0.1 0.1"
+        animation="
+        property: rotation;
+        from: 0 -171 0;
+        to: 0 189 0;
+        dur: 2000;
+        loop: true;
+        easing: linear;
+        autoplay: false;
+        resumeEvents: mouseenter;
+        pauseEvents: mouseleave"
+      >
+      </a-entity>
     </a-scene>
   </body>
 </html>
